@@ -40,7 +40,11 @@ const DropdownList = ({ type, range, representation }: TDropdownList) => {
           onChange={updateCron}
         >
           {getRange(range.min, range.max).map((option, i) => (
-            <option value={option} key={i}>
+            <option
+              selected={(cronData[type] as number[]).includes(option)}
+              value={option}
+              key={i}
+            >
               {representation ? representation[i] : option}
             </option>
           ))}
